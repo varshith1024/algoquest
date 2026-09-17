@@ -1,6 +1,9 @@
 const express = require("express");
+const notFound = require("./middleware/notFound");
+const errorHandler = require("./middleware/errorHandler");
 
 const app = express();
+
 
 app.use(express.json());
 
@@ -10,5 +13,8 @@ app.get("/api/v1/health", (req, res) => {
     message: "AlgoQuest API is healthy",
   });
 });
+
+app.use(notFound);
+app.use(errorHandler);
 
 module.exports = app;
