@@ -1,14 +1,8 @@
-const express = require("express");
+require("dotenv").config();
 
-const app = express();
+const app = require("./app");
 
 const PORT = process.env.PORT || 5000;
-
-app.get("/", (req, res) => {
-  res.json({
-    message: "AlgoQuest API is running 🚀",
-  });
-});
 
 app.listen(PORT, () => {
   console.log(`AlgoQuest server running on port ${PORT}`);
